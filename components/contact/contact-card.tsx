@@ -38,7 +38,7 @@ export function ContactCard(): ReactNode {
       setStatus("success");
       form.reset();
       setTimeout(() => setStatus("idle"), 3000);
-    } catch (error) {
+    } catch {
       setStatus("success");
       form.reset();
       setTimeout(() => setStatus("idle"), 3000);

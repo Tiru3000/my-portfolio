@@ -181,6 +181,7 @@ export default function AnimatedGradient({
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
     return () => setIsMounted(false);
   }, []);
@@ -382,29 +383,29 @@ function hexToRgba(hex: string): [number, number, number, number] {
 
   if (hex.startsWith("rgba(")) {
     const parts = hex.slice(5, -1).split(",");
-    r = parseInt(parts[0]) / 255;
-    g = parseInt(parts[1]) / 255;
-    b = parseInt(parts[2]) / 255;
-    a = parseFloat(parts[3]);
+    r = parseInt(parts[0] || "0") / 255;
+    g = parseInt(parts[1] || "0") / 255;
+    b = parseInt(parts[2] || "0") / 255;
+    a = parseFloat(parts[3] || "1");
   } else if (hex.startsWith("rgb(")) {
     const parts = hex.slice(4, -1).split(",");
-    r = parseInt(parts[0]) / 255;
-    g = parseInt(parts[1]) / 255;
-    b = parseInt(parts[2]) / 255;
+    r = parseInt(parts[0] || "0") / 255;
+    g = parseInt(parts[1] || "0") / 255;
+    b = parseInt(parts[2] || "0") / 255;
   } else if (hex.startsWith("hsla(") || hex.startsWith("hsl(")) {
     const isHsla = hex.startsWith("hsla(");
     const parts = hex.slice(isHsla ? 5 : 4, -1).split(",");
-    const h = parseFloat(parts[0]) / 360;
-    const s = parseFloat(parts[1]) / 100;
-    const l = parseFloat(parts[2]) / 100;
-    a = isHsla ? parseFloat(parts[3]) : 1;
+    const h = parseFloat(parts[0] || "0") / 360;
+    const s = parseFloat(parts[1] || "0") / 100;
+    const l = parseFloat(parts[2] || "0") / 100;
+    a = isHsla ? parseFloat(parts[3] || "1") : 1;
     [r, g, b] = hslToRgb(h, s, l);
   } else if (hex.startsWith("#")) {
     const c = hex.slice(1);
     if (c.length === 3) {
-      r = parseInt(c[0] + c[0], 16) / 255;
-      g = parseInt(c[1] + c[1], 16) / 255;
-      b = parseInt(c[2] + c[2], 16) / 255;
+      r = parseInt(c[0]! + c[0]!, 16) / 255;
+      g = parseInt(c[1]! + c[1]!, 16) / 255;
+      b = parseInt(c[2]! + c[2]!, 16) / 255;
     } else if (c.length >= 6) {
       r = parseInt(c.slice(0, 2), 16) / 255;
       g = parseInt(c.slice(2, 4), 16) / 255;
