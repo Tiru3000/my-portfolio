@@ -21,7 +21,7 @@ export function ContactCard(): ReactNode {
     const form = e.currentTarget;
     setStatus("submitting");
     const formData = new FormData(form);
-    
+
     // Replace this with your access key
     formData.append("access_key", "fa5e4cf4-2730-408c-89bf-bf7110c98a21");
 
@@ -59,7 +59,7 @@ export function ContactCard(): ReactNode {
                   maskImage: CARD_FADE_MASK,
                 }}
               >
-                <ShaderFlow scale={3} brightness={3}/>
+                <ShaderFlow scale={3} brightness={3} />
               </div>
 
               <div className="relative grid gap-8 p-6 sm:gap-10 sm:p-7 md:grid-cols-2 md:items-stretch md:gap-6 md:p-6">
