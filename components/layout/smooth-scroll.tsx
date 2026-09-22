@@ -55,15 +55,16 @@ export function SmoothScroll({
       if (!element) return;
 
       e.preventDefault();
+      e.stopPropagation();
       window.history.pushState(null, "", window.location.pathname + hash);
       window.dispatchEvent(new HashChangeEvent("hashchange"));
       lenis.scrollTo(element as HTMLElement, { offset: -100 });
     }
 
-    document.addEventListener("click", handleAnchorClick);
+    document.addEventListener("click", handleAnchorClick, true);
 
     return () => {
-      document.removeEventListener("click", handleAnchorClick);
+      document.removeEventListener("click", handleAnchorClick, true);
       cancelAnimationFrame(rafId);
       lenis.destroy();
     };

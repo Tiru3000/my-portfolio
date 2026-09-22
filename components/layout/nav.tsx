@@ -195,7 +195,7 @@ export function Nav(): ReactNode {
                 <Link
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className="focus-ring relative flex w-full cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
+                  className="focus-ring relative flex w-full cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300 active:scale-95"
                 >
                   <span
                     className={
