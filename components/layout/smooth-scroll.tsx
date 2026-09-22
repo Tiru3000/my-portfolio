@@ -39,16 +39,24 @@ export function SmoothScroll({
 
     function handleAnchorClick(e: MouseEvent): void {
       const target = e.target as HTMLElement;
-      const anchor = target.closest('a[href^="#"]');
+      const anchor = target.closest('a[href*="#"]');
       if (!anchor) return;
 
       const href = anchor.getAttribute("href");
       if (!href || href === "#") return;
 
-      const element = document.querySelector(href);
+      const hashIndex = href.indexOf("#");
+      const hash = href.substring(hashIndex);
+      const path = href.substring(0, hashIndex);
+
+      if (path && path !== window.location.pathname) return;
+
+      const element = document.querySelector(hash);
       if (!element) return;
 
       e.preventDefault();
+      window.history.pushState(null, "", window.location.pathname + hash);
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
       lenis.scrollTo(element as HTMLElement, { offset: -100 });
     }
 
