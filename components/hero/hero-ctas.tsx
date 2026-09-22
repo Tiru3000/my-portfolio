@@ -25,7 +25,7 @@ export function HeroCtas(): ReactNode {
         >
           <Link
             href="/work"
-            className="border border-foreground/5 focus-ring group inline-flex h-11 justify-center cursor-pointer items-center gap-2 rounded-xl bg-background px-5 text-sm font-medium text-foreground shadow-2xl transition-colors hover:bg-foreground/4"
+            className="border border-foreground focus-ring group inline-flex h-11 justify-center cursor-pointer items-center gap-2 rounded-xl bg-transparent px-5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
           >
             View My Work
             <ArrowRight

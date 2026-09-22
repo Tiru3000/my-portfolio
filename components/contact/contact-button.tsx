@@ -47,7 +47,7 @@ export function ContactButton(): ReactNode {
       }
       transition={{ layout: { duration: 0.55, ease: EASE } }}
       style={{ borderRadius: 12 }}
-      className="focus-ring relative inline-flex h-11 cursor-pointer items-center justify-center bg-foreground px-5 text-sm font-medium text-background"
+      className="focus-ring relative inline-flex h-11 cursor-pointer items-center justify-center border border-transparent bg-foreground px-5 text-sm font-medium text-background"
     >
       <motion.span
         layout="position"
