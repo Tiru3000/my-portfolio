@@ -89,7 +89,7 @@ function NavThemeToggle(): ReactNode {
           : "Toggle theme"
       }
       aria-pressed={mounted ? isDark : undefined}
-      className="focus-ring relative inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-background ring-1 ring-foreground/8 transition-colors"
+      className="focus-ring relative inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-background ring-1 ring-foreground/8 transition-colors"
     >
       <span aria-hidden="true" className="relative h-4 w-4">
         <Sun
@@ -166,8 +166,8 @@ export function Nav(): ReactNode {
       aria-label="Primary"
       className="fixed left-1/2 top-6 z-[100] -translate-x-1/2"
     >
-      <div className="flex items-center gap-2 rounded-full bg-background p-1.5 px-2 shadow-sm border border-foreground/8">
-        <ul ref={listRef} className="relative flex items-center gap-1">
+      <div className="flex items-center gap-1.5 rounded-full bg-background p-1.5 shadow-sm border border-foreground/8">
+        <ul ref={listRef} className="relative flex items-center gap-0.5">
           {pillRect && (
             <motion.span
               aria-hidden="true"
@@ -195,7 +195,7 @@ export function Nav(): ReactNode {
                 <Link
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className="focus-ring relative flex cursor-pointer items-center justify-center rounded-full px-4 py-2 sm:px-5 sm:py-2 text-sm font-medium transition-colors duration-300"
+                  className="focus-ring relative flex cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
                 >
                   <span
                     className={
