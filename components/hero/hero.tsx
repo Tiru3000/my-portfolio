@@ -11,10 +11,10 @@ export function Hero(): ReactNode {
         <div className="flex flex-col items-center gap-12 md:gap-16">
           <FadeIn className="flex flex-col items-center gap-4">
             <h1 className="text-[2.75rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[2.5rem] lg:text-[4rem]">
-              <span className="block whitespace-nowrap">
+              <span className="block sm:whitespace-nowrap">
                 Building iconic brands
               </span>
-              <span className="block whitespace-nowrap">for ambitious founders</span>
+              <span className="block sm:whitespace-nowrap">for ambitious founders</span>
             </h1>
 
             <p className="text-[18px] leading-[1.4] tracking-tight text-foreground/60 max-w-lg mx-auto">

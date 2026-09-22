@@ -100,7 +100,7 @@ export function ContactCard(): ReactNode {
 
       <footer className="mx-auto w-full max-w-275 px-6 sm:px-10">
         <div className="border-foreground/8 flex flex-col items-center justify-center rounded-3xl border bg-background p-6 sm:p-8">
-          <div className="flex items-center gap-6 opacity-75">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 opacity-75">
             <SocialIcon
               href="mailto:zoddesigner1902@gmail.com"
               label="Email"
