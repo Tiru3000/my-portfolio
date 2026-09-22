@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { Check, Copy, Mail } from "lucide-react";
+import { Check, Copy, Phone } from "lucide-react";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
@@ -103,7 +103,7 @@ export function ContactButton(): ReactNode {
               transition={{ duration: 0.35, ease: EASE }}
               className="inline-flex items-center gap-2 whitespace-nowrap"
             >
-              <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
               <span>Book an Appointment</span>
             </motion.span>
           )}
