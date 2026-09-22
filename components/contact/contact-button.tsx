@@ -104,7 +104,7 @@ export function ContactButton(): ReactNode {
               className="inline-flex items-center gap-2 whitespace-nowrap"
             >
               <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span>Contact</span>
+              <span>Book an Appointment</span>
             </motion.span>
           )}
         </AnimatePresence>
