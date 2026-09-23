@@ -39,26 +39,40 @@ export function SmoothScroll({
 
     function handleAnchorClick(e: MouseEvent): void {
       const target = e.target as HTMLElement;
-      const anchor = target.closest('a[href*="#"]');
+      const anchor = target.closest('a');
       if (!anchor) return;
 
       const href = anchor.getAttribute("href");
-      if (!href || href === "#") return;
+      if (!href) return;
 
-      const hashIndex = href.indexOf("#");
-      const hash = href.substring(hashIndex);
-      const path = href.substring(0, hashIndex);
+      // Ensure it's a relative link or points to the current origin
+      let url: URL;
+      try {
+        url = new URL(href, window.location.href);
+      } catch {
+        return;
+      }
 
-      if (path && path !== window.location.pathname) return;
+      // If it's navigating to a different page, let standard navigation happen
+      if (url.pathname !== window.location.pathname) return;
 
-      const element = document.querySelector(hash);
-      if (!element) return;
+      if (url.hash) {
+        const element = document.querySelector(url.hash);
+        if (!element) return;
 
-      e.preventDefault();
-      e.stopPropagation();
-      window.history.pushState(null, "", window.location.pathname + hash);
-      window.dispatchEvent(new HashChangeEvent("hashchange"));
-      lenis.scrollTo(element as HTMLElement, { offset: -100 });
+        e.preventDefault();
+        e.stopPropagation();
+        window.history.pushState(null, "", url.pathname + url.hash);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+        lenis.scrollTo(element as HTMLElement, { offset: -100 });
+      } else {
+        // Same page, no hash (e.g., href="/") - scroll to top
+        e.preventDefault();
+        e.stopPropagation();
+        window.history.pushState(null, "", url.pathname);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+        lenis.scrollTo(document.documentElement, { offset: 0 });
+      }
     }
 
     document.addEventListener("click", handleAnchorClick, true);
